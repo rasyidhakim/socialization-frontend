@@ -12,7 +12,6 @@ class Home extends React.Component {
   async componentDidMount(){
     try {
       let res = await axios.get('/screams')
-      console.log(res.data)
       this.setState({
         screams: res.data
       })
@@ -23,7 +22,7 @@ class Home extends React.Component {
 
   render() {
     let recentScreamMarkup = this.state.screams ? (
-    this.state.screams.map(scream => <Scream scream={scream} />)
+    this.state.screams.map(scream => <Scream key={scream.screamId} scream={scream} />)
     ) : <p>Loading...</p>
     return (
       <Grid container spacing={10}>
