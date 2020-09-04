@@ -18,6 +18,7 @@ import IconButton from '@material-ui/core/IconButton'
 
 // Icon
 import EditIcon from '@material-ui/icons/Edit'
+import FancyButton from '../util/FancyButton'
 
 const styles = (theme) => ({
   ...theme.spreadIt,
@@ -76,11 +77,9 @@ class EditDetails extends React.Component {
     const { classes } = this.props
     return (
       <Fragment>
-        <Tooltip title="Edit details" placement="top">
-          <IconButton onClick={this.handleOpen} className={classes.button}>
-            <EditIcon color="primary" />
-          </IconButton>
-        </Tooltip>
+        <FancyButton tip="Edit details" btnClassName={classes.button} handleOnClick={this.handleOpen}>
+          <EditIcon color="primary" />
+        </FancyButton>
         <Dialog open={this.state.open} onClose={this.handleClose} fullWidth maxWidth="sm">
           <DialogTitle>Edit your details</DialogTitle>
           <DialogContent>

@@ -34,7 +34,11 @@ class Scream extends React.Component {
     const { 
       classes, 
       scream: { body, createdAt, userImage, 
-        userHandle, screamId, likeCount, commentcount }
+        userHandle, 
+        // screamId, 
+        // likeCount, 
+        // commentcount 
+      }
     } = this.props
     return (
       <Card className={classes.card}>

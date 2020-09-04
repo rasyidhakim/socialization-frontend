@@ -4,9 +4,10 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import {Link} from 'react-router-dom'
 import dayjs from 'dayjs'
 import EditDetails from './EditDetails'
+import FancyButton from '../util/FancyButton'
 
 // MUI stuff
-import {Button, Paper, Link as MuiLink, Typography, IconButton, Tooltip } from '@material-ui/core'
+import {Button, Paper, Link as MuiLink, Typography } from '@material-ui/core'
 
 // Redux
 import { connect } from 'react-redux'
@@ -107,11 +108,9 @@ class Profile extends React.Component {
               id="imageInput"
               hidden="hidden"
               onChange={this.handleImageChange}/>
-              <Tooltip title="Edit profile picture" placement="top">
-                <IconButton onClick={this.handleEditPicture} className="button">
-                  <EditIcon color="primary"/>
-                </IconButton>
-              </Tooltip>
+              <FancyButton tip="Edit profile picture" handleOnClick={this.handleEditPicture} btnClassName="button">
+                <EditIcon color="primary"/>
+              </FancyButton>
           </div>
           <hr/>
           <div className="profile-details">
@@ -140,12 +139,10 @@ class Profile extends React.Component {
             <CalendarToday color="primary"/>{' '}
             <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
           </div>
-          <Tooltip title="Logout" placement="top">
-            <IconButton onClick={this.handleLogout}>
-              <KeyboardReturn color="primary"/>
-            </IconButton>
-          </Tooltip>
-          <EditDetails></EditDetails>
+          <FancyButton tip="Logout" handleOnClick={this.handleLogout}>
+            <KeyboardReturn color="primary"/>
+          </FancyButton>
+          <EditDetails/>
         </div>
       </Paper>
     ) : (
