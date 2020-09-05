@@ -1,5 +1,6 @@
 import { SET_SCREAMS, LOADING_DATA, LIKE_SCREAM, UNLIKE_SCREAM,
-DELETE_SCREAM, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, POST_SCREAM } from '../types'
+DELETE_SCREAM, SET_ERRORS, CLEAR_ERRORS, LOADING_UI, POST_SCREAM, 
+SET_ONE_SCREAM, STOP_LOADING_UI } from '../types'
 import axios from 'axios'
 
 // Get all screams
@@ -16,6 +17,20 @@ export const getScreams = () => async dispatch => {
       type: SET_SCREAMS,
       payload: []
     })
+  }
+}
+
+export const getOneScream = screamId => async dispatch => {
+  dispatch({ type: LOADING_UI })
+  try {
+    const result = await axios.get(`/scream/${screamId}`)
+    dispatch({
+      type: SET_ONE_SCREAM,
+      payload: result.data
+    })
+    dispatch({ type: STOP_LOADING_UI })
+  } catch (err) {
+    console.error(err)
   }
 }
 
@@ -70,4 +85,8 @@ export const deleteScream = screamId => async dispatch => {
   } catch (err) {
     console.error(err)
   }
+}
+
+export const clearErrors = () => dispatch => {
+  dispatch({ type: CLEAR_ERRORS })
 }

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import FancyButton from '../util/FancyButton'
 import DeleteScream from './DeleteScream'
 import { Link } from 'react-router-dom';
+import ScreamDialog from './ScreamDialog';
 
 // MUi Stuff
 import Card from '@material-ui/core/Card';
@@ -58,7 +59,7 @@ class Scream extends React.Component {
         userHandle, 
         screamId, 
         likeCount, 
-        // commentcount 
+        commentcount 
       },
       user: {
         authenticated, credentials: { handle }
@@ -103,6 +104,8 @@ class Scream extends React.Component {
           <FancyButton tip="comments">
             <ChatIcon color="primary"/>
           </FancyButton>
+          <span>{likeCount} {(likeCount > 1 ) ? 'comments': 'comment'}</span>
+          <ScreamDialog screamId={screamId} userHandle={userHandle} />
         </CardContent>
       </Card>
     )

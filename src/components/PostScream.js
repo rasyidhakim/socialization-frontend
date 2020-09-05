@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
+import FancyButton from '../util/FancyButton';
 
 // MUI
 import Button from '@material-ui/core/Button';
@@ -12,8 +13,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 
 // Redux
 import { connect } from 'react-redux'
-import { postScream } from '../redux/actions/dataAction'
-import FancyButton from '../util/FancyButton';
+import { postScream, clearErrors } from '../redux/actions/dataAction'
 
 // Icons
 import AddIcon from '@material-ui/icons/Add'
@@ -22,7 +22,9 @@ import CloseIcon from '@material-ui/icons/Close'
 const styles = theme => ({
   ...theme.spreadIt,
   submitButton: {
-    position: 'relative'
+    position: 'relative',
+    float: 'right',
+    marginTop: 10
   },
   progressSpinner: {
     position: 'absolute'
@@ -30,7 +32,7 @@ const styles = theme => ({
   closeButton: {
     position: 'absolute',
     left: '90%',
-    top: '10%'
+    top: '4%'
   }
 })
 
@@ -46,14 +48,14 @@ class PostScream extends React.Component {
         errors: nextProps.UI.errors
       })
     if(!nextProps.UI.errors && !nextProps.UI.loading){
-      this.setState({ body: '' })
-      this.handleClose()
+      this.setState({ body: '', open: false, errors: {} })
     }
   }
   handleOpen = () => {
     this.setState({ open: true })
   }
   handleClose = () => {
+    this.props.clearErrors()
     this.setState({ open: false, errors: {} })
   }
   handleChange = event => {
@@ -102,6 +104,7 @@ class PostScream extends React.Component {
 
 PostScream.propTypes = {
   postScream: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
   UI: PropTypes.object.isRequired
 }
 
@@ -109,4 +112,4 @@ const mapStateToProps = state => ({
   UI: state.UI
 })
 
-export default connect(mapStateToProps, { postScream })(withStyles(styles)(PostScream))
+export default connect(mapStateToProps, { postScream, clearErrors })(withStyles(styles)(PostScream))
