@@ -4,7 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 // Redux
 import { connect } from 'react-redux'
-import { editUserDetails } from '../redux/actions/userAction'
+import { editUserDetails } from '../../redux/actions/userAction'
 
 // MUI
 import Button from '@material-ui/core/Button';
@@ -16,7 +16,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 // Icon
 import EditIcon from '@material-ui/icons/Edit'
-import FancyButton from '../util/FancyButton'
+import FancyButton from '../../util/FancyButton'
 
 const styles = (theme) => ({
   ...theme.spreadIt,

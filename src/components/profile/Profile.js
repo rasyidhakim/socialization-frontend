@@ -4,14 +4,14 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import {Link} from 'react-router-dom'
 import dayjs from 'dayjs'
 import EditDetails from './EditDetails'
-import FancyButton from '../util/FancyButton'
+import FancyButton from '../../util/FancyButton'
 
 // MUI stuff
 import {Button, Paper, Link as MuiLink, Typography } from '@material-ui/core'
 
 // Redux
 import { connect } from 'react-redux'
-import { logoutUser, uploadImage} from '../redux/actions/userAction'
+import { logoutUser, uploadImage} from '../../redux/actions/userAction'
 
 // Icons
 import LocationOn from '@material-ui/icons/LocationOn'

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
-import FancyButton from '../util/FancyButton';
+import FancyButton from '../../util/FancyButton';
 
 // MUI
 import Button from '@material-ui/core/Button';
@@ -13,7 +13,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 
 // Redux
 import { connect } from 'react-redux'
-import { postScream, clearErrors } from '../redux/actions/dataAction'
+import { postScream, clearErrors } from '../../redux/actions/dataAction'
 
 // Icons
 import AddIcon from '@material-ui/icons/Add'

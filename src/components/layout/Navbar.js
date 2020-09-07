@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import FancyButton from '../util/FancyButton'
-import PostScream from './PostScream'
+import FancyButton from '../../util/FancyButton'
+import PostScream from '../scream/PostScream'
 
 // MUI stuff
 import AppBar from '@material-ui/core/AppBar'
